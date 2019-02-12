@@ -1,0 +1,36 @@
+<h1> Welcome <%= @instructor.name %> </h1>
+
+<p> <%= "Years of Experience: #{@instructor.experience} years" %> </p>
+<p> <%= "Hourly Rate: $#{@instructor.rate}" %> </p>
+
+_____________________________________________________________
+
+<h3> Your Upcoming Bookings </h3>
+<% @instructor.upcoming_bookings.each do |book| %>
+<%= "Appointment Time: #{book.format_time}" %><br>
+<%= "Hours: #{book.duration}" %><br>
+---<br>
+<%= "Student: #{book.student.name}" %><br>
+<%= "Student Age: #{book.student.age}" %><br>
+<%= "Student Level: #{book.student.level}" %><br>
+--<br>
+<%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
+<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
+--
+<% end %>
+
+
+<h3> Your Previous Bookings </h3>
+
+<% @instructor.previous_bookings.each do |book| %>
+<%= "Appointment Time: #{book.format_time}" %><br>
+<%= "Hours: #{book.duration}" %><br>
+---<br>
+<%= "Student: #{book.student.name}" %><br>
+<%= "Student Age: #{book.student.age}" %><br>
+<%= "Student Level: #{book.student.level}" %><br>
+--<br>
+<%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
+<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
+--
+<% end %>

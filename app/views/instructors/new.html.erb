@@ -1,0 +1,12 @@
+<%= form_for @instructor do |f| %>
+Name: <%= f.text_field :name %>
+<br>
+Experience: <%= f.number_field :experience %>
+<br>
+Rate: <%= f.number_field :rate %>
+<br>
+Upload Image: <%= f.text_field :img %>
+<br>
+
+<%= f.submit "Sign Up!"%>
+<% end %>

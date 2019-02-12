@@ -1,0 +1,10 @@
+<%= form_for @student do |f| %>
+Name: <%= f.text_field :name %>
+<br>
+Age: <%= f.number_field :age %>
+<br>
+Level: <%= f.text_field :level %>
+<br>
+
+<%= f.submit "Sign Up!"%>
+<% end %>

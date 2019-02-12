@@ -1,0 +1,2 @@
+class MountainInstructorsController < ApplicationController
+end

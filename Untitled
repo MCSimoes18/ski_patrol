@@ -1,0 +1,7 @@
+<!-- <%= form_tag ({controller: 'instructors', action: 'show', method: :get}) do %>
+  username: <input name=username>
+  <input type=submit value='login'>
+<% end %>
+
+
+<%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %> -->

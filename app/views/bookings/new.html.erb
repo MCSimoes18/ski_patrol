@@ -1,0 +1,13 @@
+
+<h1><%= "Book with #{@instructor.name}" %> </h1>
+
+<%= form_for @booking do |f| %>
+Date: <%= datetime_select("time_booked", "book_time", prompt: true, start_year: 2019, end_year: 2021, ampm: true, :minute_step => 15) %>
+<br>
+Number of Hours: <%= f.select :duration, @duration_arr%>
+
+<%= f.hidden_field :mountain_instructor_id, value: @mountain_instructor.id  %>
+<%= f.hidden_field :student_id, value: 1%>
+<br>
+<%= f.submit "Book with #{@instructor.name}" %>
+<% end %>

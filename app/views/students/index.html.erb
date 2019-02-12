@@ -1,0 +1,15 @@
+<h1> Welcome To App Name Goes Here </h1>
+<br>
+
+<%= button_to "view profile", @student, :method => :get %>
+
+<% @mountains.each do |mountain| %>
+<%= image_tag(mountain.mt_img, height: '320', width: '320') %>
+<h3><%= mountain.name %></h3>
+<ul>
+<li><%= "Location: #{mountain.location}" %>
+<li><%= "Number of Trails: #{mountain.trails}"%>
+<li><%= "Number of Lifts: #{mountain.lifts}" %>
+<%= button_to "See Instructors", mountain, :method => :get %>
+</ul>
+<% end %>
