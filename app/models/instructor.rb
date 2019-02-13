@@ -24,7 +24,7 @@ end
 
   def mountains=(mountain_ids_array)
     mountain_ids_array.each do|mountain_id|
-      byebug
+      # byebug
       if mountain_id != ""
         MountainInstructor.create(instructor_id: self.id, mountain_id: mountain_id)
       else
@@ -32,5 +32,10 @@ end
     end
   end
 
+  def mountain_names
+    self.mountains.map do|mountain|
+      mountain.name
+    end
+  end
 
 end

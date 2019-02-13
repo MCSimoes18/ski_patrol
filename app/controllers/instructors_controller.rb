@@ -23,6 +23,20 @@ class InstructorsController < ApplicationController
     redirect_to @instructor
   end
 
+  def edit
+    @instructor = current_instructor
+  end
+
+  def update
+    @instructor = current_instructor
+    @instructor.update(instructor_params)
+    # byebug
+    @instructor.mountain_instructors.delete_all
+    # byebug
+    @instructor.mountains=params[:instructor][:mountains]
+    redirect_to @instructor
+  end
+
   def show
     # byebug
     if !!current_instructor
