@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_225406) do
+ActiveRecord::Schema.define(version: 2019_02_13_004846) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "student_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_225406) do
     t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "password_digest"
   end
 
   create_table "mountain_instructors", force: :cascade do |t|

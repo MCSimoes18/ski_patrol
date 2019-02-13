@@ -11,10 +11,38 @@
 
 <%= form_tag({:controller => 'instructors',  :action => 'index'}, {:method => 'get'}) do %>
   username: <input name=name>
+  username: <input name=name>
   <input type=submit value='login'>
 <% end %>
 
 
 <%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %>
 
-//hi
+<h1>Login</h1>
+
+<h4><%= flash[:notice] %></h4>
+
+Student Login:
+<%= form_tag(login_student_path) do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+
+  <%= submit_tag 'Login' %>
+<% end %>
+<%= button_to "Student Sign Up", "/students/new", {method: :get} %>
+
+<br>
+Instructor Login:
+<%= form_tag(login_instructor_path) do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+
+  <%= submit_tag 'Login' %>
+<% end %>
+<%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %>

@@ -1,7 +1,18 @@
 <h1> Welcome <%= @instructor.name %> </h1>
 
-<p> <%= "Years of Experience: #{@instructor.experience} years" %> </p>
-<p> <%= "Hourly Rate: $#{@instructor.rate}" %> </p>
+<b> Your Informations: </b><br>
+<%= "Years of Experience: #{@instructor.experience} years" %> <br>
+<%= "Hourly Rate: $#{@instructor.rate}" %><br><br>
+
+<b> Your Mountains: </b><br>
+  <% @instructor.mountains.each do|mountain| %>
+    <%= mountain.name %><br>
+  <% end %>
+<br>
+
+  <% if @instructor == Instructor.find_by({id: session[:instructor_id]})%>
+    <%= button_to 'Log Out', logout_path, method: :delete, data: { confirm: 'are u sure lol' } %>
+  <%end%>
 
 _____________________________________________________________
 

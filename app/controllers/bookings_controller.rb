@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :instructor_authorized
 
   def new
     @booking = Booking.new

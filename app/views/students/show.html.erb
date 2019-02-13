@@ -1,11 +1,19 @@
-<h1><%= "Welcome,  #{@student.name}" %></h1>
+<h1><%= "Hi,  #{@student.name}" %></h1>
 
-<p>Name: <%= @student.name %> </p>
-<p>Level: <%= @student.level %> </p>
-<p>Age: <%= @student.age %> </p>
+Your Information: <br>
+Name: <%= @student.name %> <br>
+Level: <%= @student.level %><br>
+Age: <%= @student.age %><br>
+<%= button_to "Browse Mountains", students_path, :method => :get %>
+<br>
+<% if @student == Student.find_by({id: session[:student_id]})%>
+  <%= button_to 'Log Out', logout_path, method: :delete, data: { confirm: 'are u sure lol' } %>
+<%end%>
+<br>
 
 <h3> Your Upcoming Bookings </h3>
 <% @student.upcoming_bookings.each do |book| %>
+---<br>
 <%= "Appointment Time: #{book.format_time}" %><br>
 <%= "Hours: #{book.duration}" %><br>
 ---<br>
@@ -14,14 +22,13 @@
 <%= "Instructor Rate: $#{book.mountain_instructor.instructor.rate}" %><br>
 --<br>
 <%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
-<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
---
+<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br><br>
 <% end %>
-
-
+<br>
 <h3> Your Previous Bookings </h3>
 
 <% @student.previous_bookings.each do |book| %>
+---<br>
 <%= "Appointment Time: #{book.format_time}" %><br>
 <%= "Hours: #{book.duration}" %><br>
 ---<br>
@@ -30,5 +37,5 @@
 <%= "Instructor Rate: $#{book.mountain_instructor.instructor.rate}" %><br>
 --<br>
 <%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
-<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
+<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br><br>
 <% end %>
