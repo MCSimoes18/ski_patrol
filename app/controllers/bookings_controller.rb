@@ -14,7 +14,12 @@ class BookingsController < ApplicationController
     redirect_to @booking.student
   end
 
-  def show
+  def destroy
+    byebug
+    @booking = Booking.find(params[:id])
+    @booking.delete
+
+    redirect_to current_student
   end
 
 

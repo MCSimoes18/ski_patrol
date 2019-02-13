@@ -1,13 +1,11 @@
-TESTING MT PAGE
-LIST INSTRUCTORS HERE!!
-
 <h1> <%= @mountain.name%> </h1>
 <h3> All Instructors: </h3>
+
 <p> <% @mountain.instructors.each do |instructor| %></p>
-<ul>
-<li><%= instructor.name %>
-<li><%= instructor.experience %>
-<li><%= instructor.rate %>
-<%= button_to "Book with #{instructor.name}", new_booking_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id} %>
-</ul>
+    <%= instructor.name %>
+
+<li>Experience: <%= instructor.experience %>
+<li>Rate: <%= instructor.rate %>
+  <%= button_to "Book with #{instructor.name}", new_booking_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id} %>
+  <%= button_to "See #{instructor.name}'s Reviews", "/instructors/#{instructor.id}/reviews", :method => :get, params: {id: instructor.id }%>
 <% end %>

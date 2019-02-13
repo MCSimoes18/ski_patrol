@@ -1,0 +1,10 @@
+<h1><%="#{@instructor.name}'s Reviews"%></h1>
+
+<%= "------" %>
+<% @instructor.reviews.each do|review| %>
+  <%= review.title  %><br>
+  <%= review.description %><br>
+  <%= review.rating %><br>
+  <%= "------" %><br>
+<% end %>
+<%= button_to "Mountains Page", "/students", :method => :get%>

@@ -4,9 +4,10 @@ class StudentsController < ApplicationController
   helper_method :current_student
 
   def index
-    @mountains = []
-    @mountains << Mountain.find(6, 9)
-    @mountains = @mountains.flatten
+    # @mountains = []
+    # @mountains << Mountain.find(6, 9)
+    # @mountains = @mountains.flatten
+    @mountains = Mountain.all
     # @student = Student.find(1)
     @student = Student.find(session[:student_id])
   end
@@ -19,8 +20,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-
-    # byebug
     @student = Student.create(student_params)
     session[:student_id] = @student.id
     redirect_to students_path
@@ -28,8 +27,10 @@ class StudentsController < ApplicationController
 
   def show
     if !!current_student
+      # byebug
       if current_student == Student.find(params[:id])
         @student = Student.find(params[:id])
+        # byebug
         render :show
       else
         redirect_to current_student
@@ -37,6 +38,16 @@ class StudentsController < ApplicationController
     else
       redirect_to login_path
     end
+  end
+
+  def edit
+    @student = current_student
+  end
+
+  def update
+    @student = current_student
+    @student.update(student_params)
+    redirect_to @student
   end
 
 

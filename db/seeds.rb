@@ -19,9 +19,9 @@ aspen = Mountain.create(name: "Aspen Snowmass", location: "Aspen, CO", trails: 9
 vail = Mountain.create(name: "Vail Ski Resort", location: "Vail, CO", trails: 193, lifts: 31, mt_img:"https://instagram.fnyc1-1.fna.fbcdn.net/vp/888e33e948b72168834f6e10fe4257f3/5CF84C64/t51.2885-15/sh0.08/e35/s750x750/47583645_2063763700377983_6431738291832379343_n.jpg?_nc_ht=instagram.fnyc1-1.fna.fbcdn.net", region: "Rocky Mountains, United States" )
 #deleted original mountains
 
-mi1 = MountainInstructor.create(mountain_id: 6, instructor_id: 1)
-mi2 = MountainInstructor.create(mountain_id: 6, instructor_id: 2)
-mi3 = MountainInstructor.create(mountain_id: 7, instructor_id: 1)
+mi1 = MountainInstructor.create(mountain_id: 14, instructor_id: 1)
+mi2 = MountainInstructor.create(mountain_id: 14, instructor_id: 2)
+mi3 = MountainInstructor.create(mountain_id: 15, instructor_id: 1)
 
 r1 = Review.create(instructor_id: 1, student_id: 1, rating: 5, description: "great job")
 r2 = Review.create(instructor_id: 2, student_id: 1, rating: 4, description: "pretty good job")

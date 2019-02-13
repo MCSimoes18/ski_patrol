@@ -59,6 +59,11 @@ class InstructorsController < ApplicationController
     redirect_to login_path
   end
 
+  def reviews
+    @instructor = Instructor.find_by(id: params[:id])
+    render :reviews
+  end
+
   private
 
   def instructor_params

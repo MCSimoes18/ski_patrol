@@ -12,7 +12,7 @@
   <br>
   <br>
   <%=f.label "Choose Your Mountains!"%><br>
-  <%=f.collection_check_boxes(:mountains, Mountain.all, :id, :name)%>
+  <%=f.collection_check_boxes(:mountains, Mountain.all, :id, :name, { checked: @instructor.mountain_ids.map(&:to_param) })%>
   <br>
   <%= f.submit "Edit Profile"%>
 <% end %>

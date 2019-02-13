@@ -8,6 +8,7 @@ Age: <%= @student.age %><br>
 <br>
 <% if @student == Student.find_by({id: session[:student_id]})%>
   <%= button_to 'Log Out', logout_path, method: :delete, data: { confirm: 'are u sure lol' } %>
+  <%= button_to 'Edit Profile', edit_student_path, method: :get, data: { confirm: 'are you sure you want to edit?' } %>
 <%end%>
 <br>
 
@@ -22,7 +23,8 @@ Age: <%= @student.age %><br>
 <%= "Instructor Rate: $#{book.mountain_instructor.instructor.rate}" %><br>
 --<br>
 <%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
-<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br><br>
+<%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br>
+<%= button_to 'Delete', book, method: :delete, data: { confirm: 'are u sure lol' } %><br>
 <% end %>
 <br>
 <h3> Your Previous Bookings </h3>
@@ -38,4 +40,5 @@ Age: <%= @student.age %><br>
 --<br>
 <%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
 <%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br><br>
+<%= button_to "Review #{book.mountain_instructor.instructor.name}", new_review_path, method: :get, params: {instructor_id: book.mountain_instructor.instructor.id, mountain_id: book.mountain_instructor.mountain.id}, data: { confirm: 'are u sure submit review' } %><br>
 <% end %>
