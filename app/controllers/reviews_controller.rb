@@ -12,11 +12,13 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     @instructor = @review.instructor
-
-    # byebug
-
-    redirect_to instructor_reviews_path(@instructor)
+    if @review.save
+      redirect_to instructor_reviews_path(@instructor)
+    else
+    flash[:errors] = @review.errors.full_messages
+    redirect_to new_review_path
   end
+end
 
   private
 

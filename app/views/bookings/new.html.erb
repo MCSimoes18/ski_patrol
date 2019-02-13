@@ -1,3 +1,9 @@
+<h4><%= flash[:notice] %></h4>
+<% if !!flash[:errors] %>
+  <% flash[:errors].each do |message| %>
+    <li><%= message %><br>
+  <% end %>
+<% end %>
 
 <h1><%= "Book with #{@instructor.name}" %> </h1>
 
@@ -7,6 +13,7 @@ Date: <%= datetime_select("time_booked", "book_time", prompt: true, start_year: 
 Number of Hours: <%= f.select :duration, @duration_arr%>
 
 <%= f.hidden_field :mountain_instructor_id, value: @mountain_instructor.id  %>
+<%= f.hidden_field :instructor_id, value: @mountain_instructor.id  %>
 <%= f.hidden_field :student_id, value: session[:student_id]%>
 <br>
 <%= f.submit "Book with #{@instructor.name}" %>

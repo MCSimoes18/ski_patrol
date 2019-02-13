@@ -8,6 +8,10 @@ class Instructor < ApplicationRecord
   # accepts_nested_attributes_for :mountain_instructors
   accepts_nested_attributes_for :mountains
 
+  validates :name, :experience, :rate, presence: true
+  validates :username, :password, presence: true, on: :create
+  validates :username, uniqueness: true
+
 
 
 def upcoming_bookings

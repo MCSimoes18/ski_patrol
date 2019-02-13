@@ -18,9 +18,13 @@ class InstructorsController < ApplicationController
   def create
     @instructor = Instructor.create(instructor_params)
     session[:instructor_id] = @instructor.id
-    byebug
     @instructor.mountains=params[:instructor][:mountains]
-    redirect_to @instructor
+    if @instructor.save
+      redirect_to @instructor
+    else
+      flash[:errors] = @instructor.errors.full_messages
+      redirect_to new_instructor_path
+    end
   end
 
   def edit
@@ -29,12 +33,14 @@ class InstructorsController < ApplicationController
 
   def update
     @instructor = current_instructor
-    @instructor.update(instructor_params)
-    # byebug
-    @instructor.mountain_instructors.delete_all
-    # byebug
-    @instructor.mountains=params[:instructor][:mountains]
-    redirect_to @instructor
+    if @instructor.update(instructor_params)
+      @instructor.mountain_instructors.delete_all
+      @instructor.mountains=params[:instructor][:mountains]
+      redirect_to @instructor
+    else
+      flash[:errors] = @instructor.errors.full_messages
+      redirect_to edit_instructor_path
+    end
   end
 
   def show

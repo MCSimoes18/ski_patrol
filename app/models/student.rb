@@ -5,6 +5,10 @@ class Student < ApplicationRecord
   has_many :mountain_instructors, through: :bookings
   has_many :instructors, through: :mountain_instructors
 
+  validates :name, :age, :level, presence: true
+  validates :username, :password, presence: true, on: :create
+  validates :username, uniqueness: true
+
 
   def upcoming_bookings
     self.bookings.select do |book|

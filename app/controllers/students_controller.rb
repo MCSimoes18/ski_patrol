@@ -21,16 +21,19 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
-    session[:student_id] = @student.id
-    redirect_to students_path
+      if @student.save
+        session[:student_id] = @student.id
+        redirect_to students_path
+      else
+        flash[:errors] = @student.errors.full_messages
+        redirect_to new_student_path
+      end
   end
 
   def show
     if !!current_student
-      # byebug
       if current_student == Student.find(params[:id])
         @student = Student.find(params[:id])
-        # byebug
         render :show
       else
         redirect_to current_student
@@ -46,8 +49,13 @@ class StudentsController < ApplicationController
 
   def update
     @student = current_student
-    @student.update(student_params)
-    redirect_to @student
+
+    if @student.update(student_params)
+      redirect_to @student
+    else
+      flash[:errors] = @student.errors.full_messages
+      redirect_to edit_student_path
+    end
   end
 
 
