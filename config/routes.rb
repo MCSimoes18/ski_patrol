@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   get '/instructors/:id/reviews' => 'instructors#reviews', as: 'instructor_reviews'
+  # get '/booking/mountain-instructor' =>  'bookings#new', as: 'book_with_mountain_instructor'
+  # post '/booking/mountain-instructor' =>  'bookings#create', as: 'creat_with_mountain_instructor'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

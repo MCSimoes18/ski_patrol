@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  # skip_before_action :student_authorized, only: [:new, :create]
   skip_before_action :instructor_authorized
 
   def new
@@ -15,10 +14,10 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to instructor_reviews_path(@instructor)
     else
-    flash[:errors] = @review.errors.full_messages
-    redirect_to new_review_path
+      flash[:errors] = @review.errors.full_messages
+      redirect_to new_review_path
+    end
   end
-end
 
   private
 

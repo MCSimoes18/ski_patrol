@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   def new
     # byebug
     @booking = Booking.new
-    # byebug
     @instructor = Instructor.find(params[:instructor_id])
     @mountain = Mountain.find(params[:mountain_id])
     @mountain_instructor = MountainInstructor.find_by(mountain_id: params[:mountain_id], instructor_id: params[:instructor_id])
@@ -12,37 +11,25 @@ class BookingsController < ApplicationController
   end
 
   def create
-    byebug
-    if params[:booking][:book_time] == nil
-      byebug
-        # error = ["Errrorrr"]
-        # flash[:errors][:book_time] = error
-        # byebug
-        # flash[:instructor_id] =
-        redirect_to new_booking_path, params[:booking][:instructor_id] = params[:instructor_id], params[:booking][:mountain_id] = params[:mountain_id]
+    # byebug
+    if params[:time_booked]["book_time(1i)"] == "" || params[:time_booked]["book_time(2i)"] == "" || params[:time_booked]["book_time(3i)"] == "" || params[:time_booked]["book_time(4i)"] == "" || params[:time_booked]["book_time(5i)"] == ""
+      flash[:notice] = "Please fill out all the time options!"
+      # byebug
+      redirect_to "/bookings/new?instructor_id=#{params[:booking][:instructor_id]}&mountain_id=#{params[:booking][:mountain_id]}"
     else
       @booking = Booking.create(booking_params)
-        if @booking.save?
-          redirect_to @booking.student
-        else
-          flash[:errors] = @booking.errors.full_messages
-          redirect_to new_booking_path, instructor_id: params[:instructor_id], mountain_id: params[:mountain_id]
-        end
+      # byebug
+      if @booking.save
+        redirect_to @booking.student
+      else
+        flash[:errors] = @booking.errors.full_messages
+        redirect_to "/bookings/new?instructor_id=#{params[:booking][:instructor_id]}&mountain_id=#{params[:booking][:mountain_id]}"
       end
     end
-
-  #       redirect_to @booking.student
-  #     else
-  #       byebug
-  #       flash[:errors] = @booking.errors.full_messages
-  #       redirect_to new_booking_path
-  #     end
-  #   else
-  #     redirect_to new_booking_path
-  # end
+  end
 
   def destroy
-    byebug
+    # byebug
     @booking = Booking.find(params[:id])
     @booking.delete
 
@@ -62,7 +49,7 @@ class BookingsController < ApplicationController
     params[:booking][:book_time] = DateTime.new(year,month,day,hour,minute)
     params[:booking][:duration] = params["booking"]["duration"].to_i
     params[:booking][:mountain_instructor_id] = params[:booking][:mountain_instructor_id].to_i
-    params.require(:booking).permit(:mountain_instructor_id, :mountain_id, :duration, :book_time, :student_id)
+    params.require(:booking).permit(:mountain_instructor_id, :duration, :book_time, :student_id)
   end
 
 end

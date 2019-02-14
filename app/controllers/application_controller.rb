@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   #
   # end
 
-
   def current_student
     Student.find_by({id: session[:student_id]})
   end
