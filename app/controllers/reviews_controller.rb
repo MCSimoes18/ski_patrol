@@ -13,10 +13,11 @@ class ReviewsController < ApplicationController
     @review = Review.create(review_params)
     @instructor = @review.instructor
     if @review.save
-      redirect_to instructor_reviews_path(@instructor)
+      # redirect_to instructor_reviews_path(@instructor)
+      redirect_to "/instructors/#{@instructor.id}/reviews"
     else
-    flash[:errors] = @review.errors.full_messages
-    redirect_to new_review_path
+      flash[:errors] = @review.errors.full_messages
+      redirect_to new_review_path
   end
 end
 

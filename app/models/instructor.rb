@@ -42,4 +42,17 @@ end
     end
   end
 
-end
+  def average_review
+    instructor_reviews = []
+    instructor_reviews << self.reviews
+    review_arr = []
+    instructor_reviews.each do |r|
+      r.each do |rate|
+      review_arr <<  rate.rating
+      end
+    end
+    review_average = review_arr.inject(0.0) { |sum, el| sum + el }.to_f / review_arr.size
+  end
+
+
+end #end of class

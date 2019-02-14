@@ -5,4 +5,5 @@ class Review < ApplicationRecord
 
   validates :rating, :description, :title, presence: true
 
+
 end

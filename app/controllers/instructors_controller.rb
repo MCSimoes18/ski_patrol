@@ -66,8 +66,25 @@ class InstructorsController < ApplicationController
   end
 
   def reviews
-    @instructor = Instructor.find_by(id: params[:id])
-    render :reviews
+    if params[:option] == "ASC"
+      @instructor = Instructor.find_by(id: params[:instructor_id])
+      @instructor_reviews =  @instructor.reviews.sort_by {|rev| rev.rating}
+    elsif params[:option] == "DESC"
+      @instructor = Instructor.find_by(id: params[:instructor_id])
+      @instructor_reviews =  @instructor.reviews.sort_by {|rev| rev.rating}
+      @instructor_reviews = @instructor_reviews.reverse
+    elsif params[:option] == "Sort By"
+      @instructor = Instructor.find_by(id: params[:instructor_id])
+      @instructor_reviews = @instructor.reviews
+    else
+      # byebug
+      if params[:instructor_id]
+        @instructor = Instructor.find_by(id: params[:instructor_id])
+      else
+        @instructor = Instructor.find_by(id: params[:id])
+      end
+    @instructor_reviews = @instructor.reviews
+    end
   end
 
   private

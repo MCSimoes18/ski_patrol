@@ -1,14 +1,34 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>Ski Patrol</title>
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="container">
+
+<div class ="welcome"> <h1>ski patrol</h1> </div>
+
+<div class ="description"><p> Introducing Ski Patrol. We connect aspiring ski students with professional instructors at the mountain of your choice. So, sign-up and meet us at the slopes. Ready, set go!  </p> </div>
+
 
 <h4><%= flash[:notice] %></h4>
 
+
+<div class ="login">
 Student Login:
 <%= form_tag(login_student_path) do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %>
 
   <%= label_tag :password %>
-  <%= text_field_tag :password %>
+  <%= password_field_tag :password %>
 
   <%= submit_tag 'Login' %>
 <% end %>
@@ -21,8 +41,17 @@ Instructor Login:
   <%= text_field_tag :username %>
 
   <%= label_tag :password %>
-  <%= text_field_tag :password %>
+  <%= password_field_tag :password %>
 
   <%= submit_tag 'Login' %>
 <% end %>
 <%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %>
+
+</div>
+</div>
+
+<div class="background">
+<%= image_tag("friends")%>
+</div>
+</body>
+</html>

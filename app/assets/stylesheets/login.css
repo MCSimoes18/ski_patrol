@@ -1,0 +1,35 @@
+
+.background {
+opacity: 0.5;
+height: 10px;
+width: 10px;
+}
+
+.welcome {
+font-family: 'Homemade Apple', cursive;
+padding-top: 50px;
+padding-left: 350px;
+padding-right: 50px;
+padding-bottom: 10px;
+font-size: 150px
+}
+
+.description {
+font-family: 'PT Mono', monospace;
+font-size: 10px;
+padding-left :100px;
+padding-right :150px
+}
+
+.login {
+  font-family: 'PT Mono', monospace;
+  font-size: 10px;
+  padding-left :100px;
+  padding-right :150px
+}
+
+.background {
+opacity: 0.5;
+width: 2%;
+height: 20%;
+}

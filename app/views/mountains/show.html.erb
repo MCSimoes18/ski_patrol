@@ -7,5 +7,5 @@
 <li>Experience: <%= instructor.experience %>
 <li>Rate: <%= instructor.rate %>
   <%= button_to "Book with #{instructor.name}", new_booking_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id} %>
-  <%= button_to "See #{instructor.name}'s Reviews", "/instructors/#{instructor.id}/reviews", :method => :get, params: {id: instructor.id }%>
+  <%= button_to "See #{instructor.name}'s Reviews", "/instructors/#{instructor.id}/reviews", :method => :get, params: {instructor_id: instructor.id }%>
 <% end %>

@@ -1,7 +1,21 @@
 <h1><%="#{@instructor.name}'s Reviews"%></h1>
 
+<%= form_tag('/instructors/:id/reviews', method: "get") do %>
+<select name = "option">
+  <option value="">--Please choose an option--</option>
+  <option value = "ASC"> Low to High</option>
+  <option value = "DESC"> High to Low </option>
+  <input type="hidden" id=:instructor_id, name=instructor_id value= <%= @instructor.id %>>
+</select>
+<%= submit_tag 'Sort' %>
+<% end %>
+
+
+<%= " Average Rating: #{@instructor.average_review.to_f.round(1)}"%>
+<br>
+
 <%= "------" %>
-<% @instructor.reviews.each do|review| %>
+<% @instructor_reviews.each do|review| %>
   <%= review.title  %><br>
   <%= review.description %><br>
   <%= review.rating %><br>
