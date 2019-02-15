@@ -13,8 +13,31 @@ Date: <%= datetime_select("time_booked", "book_time", prompt: true, start_year: 
 Number of Hours: <%= f.select :duration, @duration_arr%>
 
 <%= f.hidden_field :mountain_instructor_id, value: @mountain_instructor.id  %>
-<%= f.hidden_field :instructor_id, value: @mountain_instructor.id  %>
+<%= f.hidden_field :instructor_id, value: @instructor.id  %>
+<%= f.hidden_field :mountain_id, value: @mountain.id  %>
 <%= f.hidden_field :student_id, value: session[:student_id]%>
 <br>
 <%= f.submit "Book with #{@instructor.name}" %>
 <% end %>
+
+
+<!-- <h4><%= flash[:notice] %></h4>
+<% if !!flash[:errors] %>
+  <% flash[:errors].each do |message| %>
+    <li><%= message %><br>
+  <% end %>
+<% end %>
+
+<h1><%= "Book with #{@instructor.name}" %> </h1>
+
+<%= form_for @booking do |f| %>
+Date: <%= datetime_select("time_booked", "book_time", prompt: true, start_year: 2019, end_year: 2021, ampm: true, :minute_step => 15) %>
+<br>
+Number of Hours: <%= f.select :duration, @duration_arr%>
+
+<%= f.hidden_field :mountain_instructor_id, value: @mountain_instructor.id  %>
+<%= f.hidden_field :instructor_id, value: @mountain_instructor.id  %>
+<%= f.hidden_field :student_id, value: session[:student_id]%>
+<br>
+<%= f.submit "Book with #{@instructor.name}" %>
+<% end %> -->

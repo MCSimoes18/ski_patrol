@@ -7,9 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="application.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+
+
   </head>
 
   <body>
-    <%= yield %>
+    <div class = "alltext">
+<div class="row" style="height: 60px;">
+  <div class="col-12">
+      <nav>
+        <a href="/students">See Mountains</a>
+        <a href="/students/<%=session[:student_id]%>">View Profile</a>
+      </nav>
+  </div>
+</div>
+</div>
+      <%= yield %>
   </body>
 </html>

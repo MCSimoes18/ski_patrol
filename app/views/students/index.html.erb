@@ -1,17 +1,66 @@
-<h1> Welcome To Ski Patrol! </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>View Mountains</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>Ski Patrol</title>
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel=“stylesheet”>
+
+
+  </head>
+  <body>
+
+<div class="col-12">
+    <div class="back">
+        <%= image_tag("friends")%>
+    </div>
+  </div>
+
+  <!-- size: "1350x800" -->
 <br>
+<div class="row">
+  <div class="col-12">
+  <div class = "welcome">
+ ski <br> patrol
+</div>
+</div>
+</div>
 
 <%= button_to "view profile", @student, :method => :get %>
 <br>
 <br>
-
+<div class="container">
+  <div class="row">
 <% @mountains.each do |mountain| %>
-<%= image_tag(mountain.mt_img, height: '320', width: '320') %>
-<h3><%= mountain.name %></h3>
-<ul>
-<li><%= "Location: #{mountain.location}" %>
-<li><%= "Number of Trails: #{mountain.trails}"%>
-<li><%= "Number of Lifts: #{mountain.lifts}" %>
-<%= button_to "See Instructors", mountain, :method => :get %>
-</ul>
+<div class="col-4">
+    <div class="mts">
+      <div class="card">
+        <%= image_tag(mountain.mt_img, height: '300', width: '300') %>
+        <div id="mountain_info">
+        <br>
+
+        <h3 style="opacity: .9;"><%= mountain.name %></h3>
+
+        <%= "Location: #{mountain.location}" %><br>
+        <%= "Number of Trails: #{mountain.trails}"%><br>
+        <%= "Number of Lifts: #{mountain.lifts}" %><br><br>
+
+
+        <%= button_to "See Instructors", mountain, :method => :get %><br>
+        </div>
+</div>
+</div>
+</div>
 <% end %>
+</div>
+</div>
+
+</body>
+</html>

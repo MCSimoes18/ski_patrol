@@ -11,47 +11,58 @@
   </head>
   <body>
 
-<div class="container">
 
-<div class ="welcome"> <h1>ski patrol</h1> </div>
+<div class ="welcome"> <h1><span style="font-size: 70pt;">ski <br> patrol</h1> </div>
 
 <div class ="description"><p> Introducing Ski Patrol. We connect aspiring ski students with professional instructors at the mountain of your choice. So, sign-up and meet us at the slopes. Ready, set go!  </p> </div>
 
 
 <h4><%= flash[:notice] %></h4>
 
-
-<div class ="login">
-Student Login:
-<%= form_tag(login_student_path) do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag 'Login' %>
-<% end %>
-<%= button_to "Student Sign Up", "/students/new", {method: :get} %>
-
-<br>
-Instructor Login:
-<%= form_tag(login_instructor_path) do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag 'Login' %>
-<% end %>
-<%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %>
-
-</div>
-</div>
-
+<div class = "container-fluid">
 <div class="background">
-<%= image_tag("friends")%>
+  <%= image_tag("friends", size: "1350x800")%>
 </div>
+
+  <div class ="login">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2 lc1">
+
+        Student Login:
+        <%= form_tag(login_student_path) do %>
+          <%= label_tag :username %>
+          <%= text_field_tag :username %>
+          <br>
+
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+
+          <%= submit_tag 'Login' %>
+        <% end %>
+        <%= button_to "Student Sign Up", "/students/new", {method: :get} %>
+      </div>
+
+<div class="col col-lg-2 lc2">
+        Instructor Login:
+        <%= form_tag(login_instructor_path) do %>
+          <%= label_tag :username %>
+          <%= text_field_tag :username %>
+          <br>
+
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+
+          <%= submit_tag 'Login' %>
+        <% end %>
+        <%= button_to "Instructor Sign Up", "/instructors/new", {method: :get} %>
+      </div>
+     </div>
+   </div>
+ </div>
+
+
+<!-- <div class="background">
+<%= image_tag("friends")%>
+</div> -->
 </body>
 </html>

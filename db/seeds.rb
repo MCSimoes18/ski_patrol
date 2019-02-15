@@ -32,4 +32,8 @@ b2 = Booking.create(student_id: 1, mountain_instructor_id: 2, duration: 1, book_
 b3 = Booking.create(student_id: 2, mountain_instructor_id: 1, duration: 3, book_time: DateTime.new(2018,4,3,4,5))
 b4 = Booking.create(student_id: 2, mountain_instructor_id: 2, duration: 4, book_time: DateTime.new(2019,5,3,4,5))
 
+
+Mountain.create(name: "Beaver Creek", location: "Beaver Creek, CO", trails: 150, lifts: 24, mt_img: "beaver", region: "Rocky Mountains, United States" )
+
+
 puts "end seed"

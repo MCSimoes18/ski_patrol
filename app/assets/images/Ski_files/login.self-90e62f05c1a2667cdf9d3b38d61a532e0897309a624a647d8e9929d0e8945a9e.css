@@ -1,9 +1,9 @@
 
 .welcome {
 font-family: 'Homemade Apple', cursive;
-padding-top: 100px;
+padding-top: 50px;
 padding-left: 350px;
-padding-right: 350px;
+padding-right: 50px;
 padding-bottom: 10px;
 font-size: 15px;
 }
@@ -11,9 +11,8 @@ font-size: 15px;
 .description {
 font-family: 'PT Mono', monospace;
 font-size: 15px;
-padding-top :15px;
-padding-left :200px;
-padding-right :200px
+padding-left :100px;
+padding-right :150px
 }
 
 .login {
@@ -36,18 +35,4 @@ right: 0;
 bottom: 0;
 height: 150px;
 width: 150px;
-}
-
-.lc1 {
-  margin: 150px;
-
-}
-
-.lc2 {
-  margin: 150px;
-}
-
-.row {
-   display: center;
-
 }
