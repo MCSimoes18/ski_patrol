@@ -1,7 +1,7 @@
 class InstructorsController < ApplicationController
   # before_action :instructor_authorized
   skip_before_action :student_authorized
-  skip_before_action :instructor_authorized, only: [:new, :index, :create]
+  skip_before_action :instructor_authorized, only: [:new, :index, :create, :reviews]
   helper_method :current_instructor
 
   def index
