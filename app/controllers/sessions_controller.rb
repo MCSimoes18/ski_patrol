@@ -33,11 +33,11 @@ class SessionsController < ApplicationController
     # session.delete(:user_id)
     if session[:student_id]
       session[:student_id] = nil
-      flash[:notice] = 'u logged out'
+      # flash[:notice] = 'u logged out'
       redirect_to login_path
     else
       session[:instructor_id] = nil
-      flash[:notice] = 'u logged out'
+      # flash[:notice] = 'u logged out'
       redirect_to login_path
     end
   end

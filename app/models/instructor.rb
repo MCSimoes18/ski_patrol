@@ -52,9 +52,9 @@ end
       end
     end
     review_average = review_arr.inject(0.0) { |sum, el| sum + el }.to_f / review_arr.size
-    if review_average == "NaN"
-      puts "No reviews yet"
-    end
+    # if review_average == "NaN"
+    #   puts "No reviews yet"
+    # end
   end
 
 

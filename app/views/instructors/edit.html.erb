@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="instructors.scss">
+  </head>
+
+
+  <body>
+
+    <div class = "alltext">
+    <div class="row">
+      <div class="col-12">
+          <nav>
+            <a href="/instructors/<%=session[:instructor_id]%>">VIEW PROFILE</a>
+            <%=link_to "LOGOUT", logout_path, method: "delete", data: { confirm: 'Are you sure you want to logout?' }%>
+          </nav>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
 
 <div class="card" id="student_profile">
   <div class ="col-4">
@@ -31,3 +58,5 @@
 </div>
 </div>
 <% end %>
+</body>
+</html>

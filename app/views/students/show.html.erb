@@ -3,10 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="students.scss">
   </head>
   <body>
 
-    <link rel="stylesheet" type="text/css" href="students.scss">
+    <!-- <link rel="stylesheet" type="text/css" href="students.scss"> -->
+
+
+
+
+<!-- <div class = "alltext"> -->
+<div class="row">
+  <div class="col-12">
+      <nav>
+        <a href="/students">SEE MOUNTAINS</a>
+        <a href="/students/<%=session[:student_id]%>">VIEW PROFILE</a>
+      </nav>
+  </div>
+</div>
+<!-- </div> -->
+
+
+
+
+
 
 <div class="card" id="student_profile">
   <div class ="col-4">
@@ -64,10 +84,10 @@ Age: <%= @student.age %><br><br>
         <%= "Mountain: #{book.mountain_instructor.mountain.name}" %><br>
         <%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>---<br><br>
         <%= button_to "Review #{book.mountain_instructor.instructor.name}", new_review_path, method: :get, params: {instructor_id: book.mountain_instructor.instructor.id, mountain_id: book.mountain_instructor.mountain.id}, data: { confirm: 'are u sure submit review' } %><br>
-      </div>
       <br>
     <% end %>
   </div>
+</div>
 
 </body>
 </html>

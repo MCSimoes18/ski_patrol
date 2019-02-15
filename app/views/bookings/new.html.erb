@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Book A Ski Lesson!</title>
+
+    <link rel="stylesheet" type="text/css" href="booking.scss">
+  </head>
+  <body>
+
+
+<div class = "alltext">
+<div class="row">
+  <div class="col-12">
+      <nav>
+        <a href="/students">SEE MOUNTAINS</a>
+        <a href="/students/<%=session[:student_id]%>">VIEW PROFILE</a>
+      </nav>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
 <h4><%= flash[:notice] %></h4>
 <% if !!flash[:errors] %>
   <% flash[:errors].each do |message| %>
@@ -32,6 +59,8 @@ Number of Hours: <%= f.select :duration, @duration_arr%> <br>
 
 <% end %>
 
+</body>
+</html>
 
 <!-- <h4><%= flash[:notice] %></h4>
 <% if !!flash[:errors] %>

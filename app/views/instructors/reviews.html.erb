@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+  </head>
+  <body>
+
+
+<div class="row">
+  <div class="col-12">
+      <nav>
+        <a href="/students">SEE MOUNTAINS</a>
+        <a href="/students/<%=session[:student_id]%>">VIEW PROFILE</a>
+      </nav>
+  </div>
+</div>
+
+
+
 
 <div class="card" id="student_profile">
   <div class ="col-4">
@@ -7,6 +29,7 @@
 
 <%= form_tag('/instructors/:id/reviews', method: "get") do %>
 <div class="card" id="student_profile">
+  <br>
   <div class ="col-4">
 <select name = "option">
   <br>
@@ -15,30 +38,30 @@
   <option value = "DESC"> High to Low </option>
   <input type="hidden" id=:instructor_id, name=instructor_id value= <%= @instructor.id %>>
 </select>
-<%= submit_tag 'Sort' %>
-</div>
+<%= submit_tag 'Sort' %><br><br>
+<%= " Average Rating: #{@instructor.average_review.to_f.round(1)}"%>
+</div><br>
 </div>
 <% end %>
 
-<div class="card" id="student_profile">
-  <div class ="col-4">
-<%= " Average Rating: #{@instructor.average_review.to_f.round(1)}"%>
+
 <br>
-</div>
-</div>
-
 <div class="card" id="student_profile">
   <div class ="col-4">
 
-<%= "------" %>
+<%= "__________________________" %><br>
 <% @instructor_reviews.each do|review| %>
   <%= review.title  %><br>
-  <%= review.description %><br>
-  <%= review.rating %><br>
-  <%= "------" %><br>
-</div>
-</div>
-<br>
+  Description: <%= review.description %><br>
+  Rating: <%= review.rating %><br>
+  <%= "__________________________" %><br>
+
 <% end %>
-<%= button_to "Back to View Mountains", "/students", :method => :get%>
+<%= button_to "Back to View Mountains", "/students", :method => :get%><br>
+</div>
+</div>
 <br>
+
+
+</body>
+</html>

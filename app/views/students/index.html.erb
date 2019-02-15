@@ -17,11 +17,32 @@
   </head>
   <body>
 
+    <div class = "alltext">
+    <div class="row">
+      <div class="col-12">
+          <nav>
+            <a href="/students">SEE MOUNTAINS</a>
+            <a href="/students/<%=session[:student_id]%>">VIEW PROFILE</a>
+            <%=link_to "LOGOUT", logout_path, method: "delete", data: { confirm: 'Are you sure you want to logout?' } %>
+          </nav>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="col-12">
     <div class="back">
-        <%= image_tag("friends")%>
+        <!-- <%= image_tag("friends")%> -->
     </div>
   </div>
 

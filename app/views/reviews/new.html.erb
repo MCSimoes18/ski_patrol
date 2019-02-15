@@ -6,9 +6,23 @@
     <link rel="stylesheet" type="text/css" href="students.scss">
   </head>
   <body>
+
+
+    <div class="row">
+      <div class="col-12">
+          <nav>
+            <a href="/students">SEE MOUNTAINS</a>
+            <a href="/students/<%=session[:student_id]%>">VIEW PROFILE</a>
+          </nav>
+      </div>
+    </div>
+
+
+
+
   <div class="card" id="student_profile">
     <div class ="col-4">
-<h1>New Review For <%=@instructor.name %></h1>
+<h1>New Review For <%=Instructor.find(params[:instructor_id]).name %></h1>
 </div>
 </div>
 <h4><%= flash[:notice] %></h4>
@@ -29,11 +43,11 @@
   <br>
   Rating: <br> <%= f.number_field :rating, size:"50x20" %>
   <br>
-  <%= f.hidden_field :mountain_id, value: @mountain %>
+  <%= f.hidden_field :mountain_id, value: @mountain.id %>
   <%= f.hidden_field :student_id, value: session[:student_id]%>
-  <%= f.hidden_field :instructor_id, value: @instructor.id%>
+  <%= f.hidden_field :instructor_id, value: params[:instructor_id]%>
   <br>
-  <%= f.submit "Submit review for #{@instructor.name}!"%>
+  <%= f.submit "Submit review for #{Instructor.find(params[:instructor_id]).name}"%>
   <br>
   <br>
 </div>
