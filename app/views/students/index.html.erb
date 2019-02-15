@@ -41,19 +41,19 @@
 <% @mountains.each do |mountain| %>
 <div class="col-4">
     <div class="mts">
-      <div class="card">
+      <div class="card" id="mtcard">
         <%= image_tag(mountain.mt_img, height: '300', width: '300') %>
         <div id="mountain_info">
         <br>
 
-        <h3 style="opacity: .9;"><%= mountain.name %></h3>
+        <h3 style="opacity: .9;"><%= mountain.name.upcase %></h3>
 
         <%= "Location: #{mountain.location}" %><br>
         <%= "Number of Trails: #{mountain.trails}"%><br>
         <%= "Number of Lifts: #{mountain.lifts}" %><br><br>
 
 
-        <%= button_to "See Instructors", mountain, :method => :get %><br>
+        <%= button_to "View Instructors", mountain, :method => :get %><br>
         </div>
 </div>
 </div>

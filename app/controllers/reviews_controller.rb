@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  # skip_before_action :student_authorized, only: [:new, :create]
+  skip_before_action :student_authorized, only: [:new, :create]
   skip_before_action :instructor_authorized
 
   def new

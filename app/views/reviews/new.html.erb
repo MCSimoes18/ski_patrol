@@ -1,4 +1,16 @@
-<h1>New Review!</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Review Instructor</title>
+    <link rel="stylesheet" type="text/css" href="students.scss">
+  </head>
+  <body>
+  <div class="card" id="student_profile">
+    <div class ="col-4">
+<h1>New Review For <%=@instructor.name %></h1>
+</div>
+</div>
 <h4><%= flash[:notice] %></h4>
 
 <% if !!flash[:errors] %>
@@ -8,15 +20,25 @@
 <% end %>
 
 <%= form_for @review do |f| %>
-  Title: <%= f.text_field :title %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
+    <br>
+  Title: <br><%= f.text_field :title, size: "50x20"%>
   <br>
-  Description: <%= f.text_area :description %>
+  Description: <br> <%= f.text_area :description, size: "50x8" %>
   <br>
-  Rating: <%= f.number_field :rating %>
+  Rating: <br> <%= f.number_field :rating, size:"50x20" %>
   <br>
-  <%= f.hidden_field :mountain_id, value: @mountain.id  %>
+  <%= f.hidden_field :mountain_id, value: @mountain %>
   <%= f.hidden_field :student_id, value: session[:student_id]%>
   <%= f.hidden_field :instructor_id, value: @instructor.id%>
   <br>
   <%= f.submit "Submit review for #{@instructor.name}!"%>
+  <br>
+  <br>
+</div>
+</div>
 <% end %>
+
+</body>
+</html>

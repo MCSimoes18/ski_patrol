@@ -17,14 +17,15 @@
  nav {
  	width: 100%;
  	display: flex;
- 	padding: 25px;
+ 	/* padding: 25px; */
   background-color: black;
   height: 50px;
 
  }
 
  nav a {
-    font-family: 'PT Mono', monospace;
+    /* font-family: 'PT Mono', monospace; */
+    font-family: 'Hind Vadodara', sans-serif;
     font-size: 20px;
   	align-self: center;
     padding: 50px;

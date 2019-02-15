@@ -1,11 +1,36 @@
-<h1> <%= @mountain.name%> </h1>
-<h3> All Instructors: </h3>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mountain Instructors</title>
+  </head>
+  <body>
 
+    <div class="card" id="student_profile">
+      <div class ="col-4">
+<h1> <b><%= @mountain.name.upcase%> </b></h1>
+<p>All of our instructors are certified, screened, and extremely talented individuals.
+<br>  We help connect you to the best of the best because we care about you and your learning experience.
+<br> Our instructors know the value and importance of safety</p>
+</div>
+</div>
 <p> <% @mountain.instructors.each do |instructor| %></p>
-    <%= instructor.name %>
-
-<li>Experience: <%= instructor.experience %>
-<li>Rate: <%= instructor.rate %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
+    <br>
+  <h2>  <%= instructor.name.upcase%> </h2>
+Years of Experience: <%= instructor.experience %> <br>
+Rate: $ <%= instructor.rate %> <br>
   <%= button_to "Book with #{instructor.name}", new_booking_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id} %>
+  <!-- <%= button_to "See #{instructor.name}'s Reviews", "instructor_reviews", :method => :get, params: {instructor_id: instructor.id }%> -->
+
   <%= button_to "See #{instructor.name}'s Reviews", "/instructors/#{instructor.id}/reviews", :method => :get, params: {instructor_id: instructor.id }%>
+
+  <br>
+  <br>
+</div>
+</div>
 <% end %>
+
+</body>
+</html>
