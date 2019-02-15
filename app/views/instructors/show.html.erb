@@ -1,8 +1,14 @@
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h1> Welcome <%= @instructor.name %> </h1>
+</div>
+</div>
 
+<div class="card" id="student_profile">
+  <div class ="col-4">
+    <br>
 <b> Your Information: </b><br>
-
-
 <%= "Years of Experience: #{@instructor.experience} years" %> <br>
 <%= "Hourly Rate: $#{@instructor.rate}" %><br><br>
 
@@ -15,10 +21,15 @@
   <% if @instructor == Instructor.find_by({id: session[:instructor_id]})%>
     <%= button_to 'Edit', edit_instructor_path, method: :get, data: { confirm: 'Are you sure you want to edit?' } %>
     <%= button_to 'Log Out', logout_path, method: :delete, data: { confirm: 'are u sure lol' } %>
+    <br>
   <%end%>
 
-_____________________________________________________________
+</div>
+</div>
 
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h3> Your Upcoming Bookings </h3>
 <% @instructor.upcoming_bookings.each do |book| %>
 <%= "Appointment Time: #{book.format_time}" %><br>
@@ -32,8 +43,11 @@ _____________________________________________________________
 <%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
 --
 <% end %>
+</div>
+</div>
 
-
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h3> Your Previous Bookings </h3>
 
 <% @instructor.previous_bookings.each do |book| %>
@@ -48,3 +62,5 @@ _____________________________________________________________
 <%= "Mountain Location: #{book.mountain_instructor.mountain.location}" %><br>
 --
 <% end %>
+</div>
+</div>

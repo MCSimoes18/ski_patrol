@@ -22,9 +22,18 @@
 Years of Experience: <%= instructor.experience %> <br>
 Rate: $ <%= instructor.rate %> <br>
   <%= button_to "Book with #{instructor.name}", new_booking_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id} %>
-  <!-- <%= button_to "See #{instructor.name}'s Reviews", "instructor_reviews", :method => :get, params: {instructor_id: instructor.id }%> -->
+
+  <%= button_to "See #{instructor.name}'s Reviews", "instructors/instructor.id/reviews", :method => :get, params: {instructor_id: instructor.id }%>
+
+  <%= button_to "See #{instructor.name}'s Reviews", instructor_reviews_path, :method => :get, params: {instructor_id: instructor.id, mountain_id: @mountain.id }%>
+
+  <%= button_to "See #{instructor.name}'s Reviews", instructor_reviews_path, :method => :get, params: {instructor_id: instructor.id }%>
+
+  <%= button_to "See #{instructor.name}'s Reviews", instructor_reviews_path, :method => :get, params: {instructor_id: instructor.id }%>
 
   <%= button_to "See #{instructor.name}'s Reviews", "/instructors/#{instructor.id}/reviews", :method => :get, params: {instructor_id: instructor.id }%>
+
+
 
   <br>
   <br>

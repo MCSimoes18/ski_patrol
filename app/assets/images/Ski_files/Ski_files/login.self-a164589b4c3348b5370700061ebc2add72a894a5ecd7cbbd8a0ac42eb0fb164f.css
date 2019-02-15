@@ -1,0 +1,53 @@
+
+.welcome {
+font-family: 'Homemade Apple', cursive;
+padding-top: 100px;
+padding-left: 350px;
+padding-right: 350px;
+padding-bottom: 10px;
+font-size: 15px;
+}
+
+.description {
+font-family: 'PT Mono', monospace;
+font-size: 15px;
+padding-top :15px;
+padding-left :200px;
+padding-right :200px
+}
+
+.login {
+  font-family: 'PT Mono', monospace;
+  font-size: 15px;
+  box-sizing: content-box;
+}
+
+.background {
+opacity: 0.5;
+width: 2%;
+height: 20%;
+z-index: -1;
+background-position: center;
+background-size: cover;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+height: 150px;
+width: 150px;
+}
+
+.lc1 {
+  margin: 150px;
+
+}
+
+.lc2 {
+  margin: 150px;
+}
+
+.row {
+   display: center;
+
+}

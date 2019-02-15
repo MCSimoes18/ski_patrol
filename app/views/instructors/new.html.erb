@@ -1,4 +1,9 @@
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h1>Instructor Sign Up!</h1>
+</div>
+</div>
 <h4><%= flash[:notice] %></h4>
 <% if !!flash[:errors] %>
   <% flash[:errors].each do |message| %>
@@ -7,22 +12,29 @@
 <% end %>
 
 <%= form_for @instructor do |f| %>
-  Name: <%= f.text_field :name %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
+    <br>
+  Name: <%= f.text_field :name, size: "25.8x20"%>
   <br>
-  Experience: <%= f.number_field :experience %>
+  Experience:   <%= f.number_field :experience %>
   <br>
-  Rate: <%= f.number_field :rate %>
+  Rate: <%= f.number_field :rate, size: "30x20" %>
   <br>
-  Upload Image: <%= f.text_field :img %>
+  Upload Image: <%= f.text_field :img, size: "17x20" %>
   <br>
   <br>
-  <%=f.label "Choose Your Mountains!"%><br>
+  <%=f.label "Choose Your Mountain Availability:"%><br>
   <%=f.collection_check_boxes(:mountains, Mountain.all, :id, :name)%>
   <br>
   <br>
   Username: <%= f.text_field :username %>
   <br>
-  Password: <%= f.text_field :password %>
+  Password: <%= f.password_field :password %>
   <br>
   <%= f.submit "Sign Up!"%>
+  <br>
+  <br>
+</div>
+</div>
 <% end %>

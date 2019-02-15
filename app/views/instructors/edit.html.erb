@@ -1,4 +1,9 @@
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h1>Instructor Sign Up!</h1>
+</div>
+</div>
 <h4><%= flash[:notice] %></h4>
 <% if !!flash[:errors] %>
   <% flash[:errors].each do |message| %>
@@ -7,6 +12,9 @@
 <% end %>
 
 <%= form_for @instructor do |f| %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
+
   Name: <%= f.text_field :name %>
   <br>
   Experience: <%= f.number_field :experience %>
@@ -20,4 +28,6 @@
   <%=f.collection_check_boxes(:mountains, Mountain.all, :id, :name, { checked: @instructor.mountain_ids.map(&:to_param) })%>
   <br>
   <%= f.submit "Edit Profile"%>
+</div>
+</div>
 <% end %>

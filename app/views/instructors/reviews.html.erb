@@ -1,18 +1,34 @@
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <h1><%="#{@instructor.name}'s Reviews"%></h1>
+</div>
+</div>
 
 <%= form_tag('/instructors/:id/reviews', method: "get") do %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <select name = "option">
-  <option value="">--Please choose an option--</option>
+  <br>
+  <option value="">--Sort By--</option>
   <option value = "ASC"> Low to High</option>
   <option value = "DESC"> High to Low </option>
   <input type="hidden" id=:instructor_id, name=instructor_id value= <%= @instructor.id %>>
 </select>
 <%= submit_tag 'Sort' %>
+</div>
+</div>
 <% end %>
 
-
+<div class="card" id="student_profile">
+  <div class ="col-4">
 <%= " Average Rating: #{@instructor.average_review.to_f.round(1)}"%>
 <br>
+</div>
+</div>
+
+<div class="card" id="student_profile">
+  <div class ="col-4">
 
 <%= "------" %>
 <% @instructor_reviews.each do|review| %>
@@ -20,5 +36,9 @@
   <%= review.description %><br>
   <%= review.rating %><br>
   <%= "------" %><br>
+</div>
+</div>
+<br>
 <% end %>
-<%= button_to "Mountains Page", "/students", :method => :get%>
+<%= button_to "Back to View Mountains", "/students", :method => :get%>
+<br>

@@ -1,4 +1,9 @@
+<div class="card" id="student_profile">
+  <div class ="col-4">
+
 <h1>Student Sign Up!</h1>
+</div>
+</div>
 <h4><%= flash[:notice] %></h4>
 <% if !!flash[:errors] %>
 <% flash[:errors].each do |message| %>
@@ -7,7 +12,10 @@
   <% end %>
 <% end %>
 
+
 <%= form_for @student do |f| %>
+<div class="card" id="student_profile">
+  <div class ="col-4">
 Name: <%= f.text_field :name %>
 <br>
 Age: <%= f.number_field :age %>
@@ -20,4 +28,6 @@ Username: <%= f.text_field :username %>
 Password: <%= f.text_field :password %>
 <br>
 <%= f.submit "Sign Up!"%>
+</div>
+</div>
 <% end %>
